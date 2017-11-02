@@ -3,6 +3,7 @@ language: node_js
 node_js: node
 deploy:
   provider: heroku
+  api_key: a5ee0e83-4f13-4c7d-9427-f29437519c89
   app: hidden-ridge-33061
 # services:
 # - mongodb
