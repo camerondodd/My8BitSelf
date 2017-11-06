@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var mongoose = require('mongoose'),
+var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var {PORT, DATABASE_URL} = require('./config');
 app.use(express.static('public'));
