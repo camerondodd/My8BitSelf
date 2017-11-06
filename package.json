@@ -5,10 +5,10 @@
   "main": "server.js",
   "dependencies": {
     "Express": "^3.0.1",
+    "body-parser": "^1.15.2",
     "express": "^4.16.2",
-    "mongoose": "^4.7.2",
-    "morgan": "^1.7.0",
-    "body-parser": "^1.15.2"
+    "mongoose": "^4.13.0",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
