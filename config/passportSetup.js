@@ -35,7 +35,13 @@ passport.use(
 				new User({
 					username: profile.displayName,
 					googleId: profile.id,
-					thumbnail: profile._json.image.url
+					thumbnail: profile._json.image.url,
+					strPts:1,
+					agiPts:1,
+					vitPts:1,
+					intPts:1,
+					wsdPts:1,
+					chrPts:1
 				}).save().then((newUser)=>{
 					console.log('new user created' + newUser);
 					done(null,newUser);

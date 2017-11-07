@@ -1,6 +1,8 @@
 const express = require('express');
 const router = require('express').Router();
 const User = require('../models/userModel');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 const authCheck = (req, res, next) => {
 	if(!req.user){
@@ -33,10 +35,24 @@ router.delete('/stats/:id', (req,res)=>{
 	console.log('del request landed');
 	// User.delete(req.params.id);
 	User.remove({_id:req.params.id}).then(()=>{
-		res.sendStatus(204);
+		res.Status(204).end();
 	});
 	console.log('user deleted');
 	res.render('login');
 })
+
+router.put('/stats/:id',jsonParser,(req,res)=>{
+	console.log('stats updated');
+	const updatedItem = User.update({
+		"_id": req.params.id,
+		"strPts":req.body.strPts,
+		"agiPts":req.body.agiPts,
+		"vitPts":req.body.agiPts,
+		"intPts":req.body.intPts,
+		"wsdPts":req.body.wsdPts,
+		"chrPts":req.body.chrPts
+	})
+	.then(()=>{res.status(204).end();});	
+});
 
 module.exports = router;
