@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script type="text/javascript"></script>
+	<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+	<script type="text/javascript" src="index.js"></script> 
+</head>
+<body>
+	<header role="banner">
+		<h1>App Title!</h1>
+	</header>
+	<nav>
+			<ul>
+				<% if (user) { %>
+				<li><a href="/auth/logout">LogOut</a></li> 
+				<% } else { %>
+				<li><a href="/auth/login">LogIn</a></li> 
+				<% } %>
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/auth/info">Info</a></li>
+			</ul>
+	</nav>
+
+</body>
+</html>
