@@ -1,4 +1,6 @@
+const express = require('express');
 const router = require('express').Router();
+const User = require('../models/userModel');
 
 const authCheck = (req, res, next) => {
 	if(!req.user){
@@ -24,7 +26,17 @@ router.get('/adv', (req, res)=>{
 });
 
 router.get('/stats', (req, res)=>{
-	res.send({user:req.user});
+	res.json({user:req.user});
 });
+
+router.delete('/stats/:id', (req,res)=>{
+	console.log('del request landed');
+	// User.delete(req.params.id);
+	User.remove({_id:req.params.id}).then(()=>{
+		res.sendStatus(204);
+	});
+	console.log('user deleted');
+	res.render('login');
+})
 
 module.exports = router;

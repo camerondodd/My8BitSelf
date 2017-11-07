@@ -13,12 +13,15 @@ passport.deserializeUser((id, done)=>{
 	});
 });
 
+const clientIDEnc = keys.google.clientID;
+const clientSecretEnc = keys.google.clientSecret;
+
 passport.use(
 	new GoogleStrategy({
 		// options for the google strat
 		callbackURL:"/auth/google/redirect",
-		clientID:keys.google.clientID,
-		clientSecret:keys.google.clientSecret
+		clientID:clientIDEnc,
+		clientSecret:clientSecretEnc
 },(accessToken, refreshToken, profile, done)=>{
 		// check if user already exists
 		User.findOne({googleId:profile.id}).then( (currentUser) => {

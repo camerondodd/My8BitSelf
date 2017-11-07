@@ -16,9 +16,10 @@ mongoose.Promise = global.Promise;
 // set up view engine
 app.set("view engine",'ejs');
 
+var cookieKeys = keys.session.cookieKey;
 app.use(cookieSession({
 	maxAge: 24*60*60*1000,
-	keys: [keys.session.cookieKey]
+	keys: [cookieKeys]
 }));
 
 // initialize passport
@@ -26,7 +27,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // connect to mongodb
-mongoose.connect(keys.mongodb.dbURI, ()=>{
+var dbURI = keys.mongodb.dbURI;
+mongoose.connect(dbURI, ()=>{
 	console.log('connected to mongodb');
 });
 
@@ -38,7 +40,7 @@ app.use('/profile', profileRoutes);
 app.get('/',(req,res)=>{
 	res.render('home',{user:req.user});
 });
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 
 
