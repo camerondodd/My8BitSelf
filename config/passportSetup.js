@@ -35,13 +35,13 @@ passport.use(
 				new User({
 					username: profile.displayName,
 					googleId: profile.id,
-					thumbnail: profile._json.image.url,
-					strPts:1,
-					agiPts:1,
-					vitPts:1,
-					intPts:1,
-					wsdPts:1,
-					chrPts:1
+					avatar:"../0.jpg",
+					strPts:0,
+					agiPts:0,
+					vitPts:0,
+					intPts:0,
+					wsdPts:0,
+					chrPts:0
 				}).save().then((newUser)=>{
 					console.log('new user created' + newUser);
 					done(null,newUser);

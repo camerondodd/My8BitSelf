@@ -31,6 +31,10 @@ router.get('/stats', (req, res)=>{
 	res.json({user:req.user});
 });
 
+router.get('/avatar',(req,res)=>{
+	res.render('avatar', {user:req.user});
+});
+
 router.delete('/stats/:id', (req,res)=>{
 	console.log('del request landed');
 	// User.delete(req.params.id);
@@ -39,18 +43,20 @@ router.delete('/stats/:id', (req,res)=>{
 	});
 	console.log('user deleted');
 	res.render('login');
-})
+});
 
 router.put('/stats/:id',jsonParser,(req,res)=>{
 	console.log('stats updated');
+	// console.log(req.user);
 	const updatedItem = User.update({
 		"_id": req.params.id,
-		"strPts":req.body.strPts,
-		"agiPts":req.body.agiPts,
-		"vitPts":req.body.agiPts,
-		"intPts":req.body.intPts,
-		"wsdPts":req.body.wsdPts,
-		"chrPts":req.body.chrPts
+		"avatar":req.user.avatar,
+		"strPts":req.user.strPts,
+		"agiPts":req.user.agiPts,
+		"vitPts":req.user.agiPts,
+		"intPts":req.user.intPts,
+		"wsdPts":req.user.wsdPts,
+		"chrPts":req.user.chrPts
 	})
 	.then(()=>{res.status(204).end();});	
 });
