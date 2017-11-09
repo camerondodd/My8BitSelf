@@ -73,7 +73,7 @@ function strButton(){
 
 function agiButton(){
 	$('.adventureButtons').on('click','.agiButton', function(){
-		console.log('Agility Adventure!');
+		console.log('Agility Adventure!'+Cagi);
 		Cagi++;
 		putStat();
 	})

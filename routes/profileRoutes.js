@@ -47,18 +47,17 @@ router.delete('/stats/:id', (req,res)=>{
 
 router.put('/stats/:id',jsonParser,(req,res)=>{
 	console.log('stats updated');
-	// console.log(req.user);
-	const updatedItem = User.update({
-		"_id": req.params.id,
+	console.log(req);
+	return updatedItem = User.findByIdAndUpdate(req.user._id,{
 		"avatar":req.user.avatar,
 		"strPts":req.user.strPts,
 		"agiPts":req.user.agiPts,
-		"vitPts":req.user.agiPts,
+		"vitPts":req.user.vitPts,
 		"intPts":req.user.intPts,
 		"wsdPts":req.user.wsdPts,
 		"chrPts":req.user.chrPts
 	})
-	.then(()=>{res.status(204).end();});	
+	.then(()=>{res.status(204).json();});	
 });
 
 module.exports = router;
