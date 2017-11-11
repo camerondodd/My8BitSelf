@@ -29,7 +29,17 @@
 	</header>
 	<main>
 		<p> Account Info </p>
-		<img src="<%= user.thumbnail %>"/>
+		<img src="<%= user.avatar %>"/>
+		<form class="updateUsername">
+			<h2>Change User Name?</h2>
+			<input type="text" placeholder="username" class="usernameInput">
+			<button type="submit">Change</button>
+		</form>
+		<form class="updateClass">
+			<h2>Change Class?</h2>
+			<input type="text" placeholder="class" class="classInput">
+			<button type="submit">Change</button>
+		</form>
 		<div class="delAcc">
 			<button class="delAccButton">Delete Account</button>
 		</div>

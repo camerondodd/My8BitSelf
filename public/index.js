@@ -21,6 +21,8 @@ function displayStats(data){
 		<img src="${data.user.avatar}"/>
 	`);
 	statsURLDel=`/profile/stats/${id}`;
+	Cusername=data.user.username;
+	Cclass=data.user.class;
 	Cstr = data.user.strPts;
 	Cagi = data.user.agiPts;
 	Cvit = data.user.vitPts;
@@ -32,24 +34,26 @@ function displayStats(data){
 
 getStats(displayStats);
 
-// const logInURL = '/auth/login';
-
-// function delReD(){
-// 	settings={
-// 		method:'GET',
-// 		dataType:'json',
-// 		url:logInURL,
-// 	};
-// 	$.ajax(settings);
-// }
+ 
 
 function delAccButton(){
  	$('.delAcc').on('click','.delAccButton', function(){
  	console.log('delAcc button pressed');
- 	delAcc();
  	// delReD();
+ 	delAcc();
  	})
 }
+
+// const homeURL = '/';
+
+//  function delReD(){
+//  	console.log('delReD ran');
+//  	settings={
+//  		method:'GET',
+//  		url:homeURL,
+//  	};
+//  	$.ajax(settings);
+//  }
 
 function delAcc(){
 	settings={
@@ -111,6 +115,24 @@ function chrButton(){
 	})
 }
 
+function usernameSubmit(){
+	$('.updateUsername').submit(event => {
+    event.preventDefault();
+    const queryTarget=$(event.currentTarget).find('.usernameInput');
+    Cusername=queryTarget.val();
+    queryTarget.val('');
+    putStat();
+})}
+
+function classSubmit(){
+$('.updateClass').submit(event => {
+    event.preventDefault();
+    const queryTarget=$(event.currentTarget).find('.classInput');
+    Cclass=queryTarget.val();
+    queryTarget.val('');
+    putStat();
+})}
+
 function putStat(){
 	settings={
 		method:'PUT',
@@ -118,6 +140,8 @@ function putStat(){
 		url:statsURLDel,
 		data:{
 			"id":id,
+			"username":Cusername,
+			"class":Cclass,
 			"avatar":Cavatar,
 			"strPts":Cstr,
 			"agiPts":Cagi,
@@ -140,6 +164,8 @@ function functionRunner(){
 	intButton();
 	wsdButton();
 	chrButton();
+	usernameSubmit();
+	classSubmit();
 }
 
 $(functionRunner);

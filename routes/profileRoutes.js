@@ -4,6 +4,9 @@ const User = require('../models/userModel');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended:true}));
+
 const authCheck = (req, res, next) => {
 	if(!req.user){
 		// if user is not logged in
@@ -39,23 +42,28 @@ router.delete('/stats/:id', (req,res)=>{
 	console.log('del request landed');
 	// User.delete(req.params.id);
 	User.remove({_id:req.params.id}).then(()=>{
-		res.Status(204).end();
+		// res.Status(204).end();
+		res.Status(204).then(()=>{
+			res.redirect('/auth/login')
+		}).end();
 	});
 	console.log('user deleted');
-	res.render('login');
+	// res.render('login');
 });
 
 router.put('/stats/:id',jsonParser,(req,res)=>{
 	console.log('stats updated');
-	console.log(req);
+	console.log(req.body);
 	return updatedItem = User.findByIdAndUpdate(req.user._id,{
-		"avatar":req.user.avatar,
-		"strPts":req.user.strPts,
-		"agiPts":req.user.agiPts,
-		"vitPts":req.user.vitPts,
-		"intPts":req.user.intPts,
-		"wsdPts":req.user.wsdPts,
-		"chrPts":req.user.chrPts
+		"username":req.body.username,
+		"class":req.body.class,
+		"avatar":req.body.avatar,
+		"strPts":req.body.strPts,
+		"agiPts":req.body.agiPts,
+		"vitPts":req.body.vitPts,
+		"intPts":req.body.intPts,
+		"wsdPts":req.body.wsdPts,
+		"chrPts":req.body.chrPts
 	})
 	.then(()=>{res.status(204).json();});	
 });

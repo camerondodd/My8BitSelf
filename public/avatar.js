@@ -21,6 +21,8 @@ function displayStats(data){
 		<img src="${data.user.avatar}"/>
 	`);
 	statsURLDel=`/profile/stats/${id}`;
+	Cusername=data.user.username;
+	Cclass = data.user.class;
 	Cstr = data.user.strPts;
 	Cagi = data.user.agiPts;
 	Cvit = data.user.vitPts;
@@ -135,7 +137,9 @@ function putAvatar(){
 		url:statsURLDel,
 		data:{
 			"id":id,
+			"username":Cusername,
 			"avatar":Cavatar,
+			"class":Cclass,
 			"strPts":Cstr,
 			"agiPts":Cagi,
 			"vitPts":Cvit,

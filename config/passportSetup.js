@@ -35,6 +35,7 @@ passport.use(
 				new User({
 					username: profile.displayName,
 					googleId: profile.id,
+					class:"Novice",
 					avatar:"../0.jpg",
 					strPts:0,
 					agiPts:0,
