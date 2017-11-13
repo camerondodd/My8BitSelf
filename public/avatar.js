@@ -21,15 +21,23 @@ function displayStats(data){
 		<img src="${data.user.avatar}"/>
 	`);
 	statsURLDel=`/profile/stats/${id}`;
-	Cusername=data.user.username;
-	Cclass = data.user.class;
-	Cstr = data.user.strPts;
-	Cagi = data.user.agiPts;
-	Cvit = data.user.vitPts;
-	Cint = data.user.intPts;
-	Cwsd = data.user.wsdPts;
-	Cchr = data.user.chrPts;
+	Cusername = data.user.username;
 	Cavatar = `${data.user.avatar}`;
+	Cclass = data.user.class;
+	Clevel = data.user.level;
+	Cxp = data.user.xp;
+	Cstr = data.user.strPts;
+	Sstr = data.user.strS;
+	Cagi = data.user.agiPts;
+	Sagi = data.user.agiS;
+	Cvit = data.user.vitPts;
+	Svit = data.user.vitS;
+	Cint = data.user.intPts;
+	Sint = data.user.intS;
+	Cwsd = data.user.wsdPts;
+	Swsd = data.user.wsdS;
+	Cchr = data.user.chrPts;
+	Schr = data.user.chrS;
 }
 
 getStats(displayStats);
@@ -138,19 +146,28 @@ function putAvatar(){
 		data:{
 			"id":id,
 			"username":Cusername,
-			"avatar":Cavatar,
 			"class":Cclass,
+			"avatar":Cavatar,
+			"level":Clevel,
+			"xp":Cxp,
 			"strPts":Cstr,
+			"strS":Sstr,
 			"agiPts":Cagi,
+			"agiS":Sagi,
 			"vitPts":Cvit,
+			"vitS":Svit,
 			"intPts":Cint,
+			"intS":Sint,
 			"wsdPts":Cwsd,
-			"chrPts":Cchr
+			"wsdS":Swsd,
+			"chrPts":Cchr,
+			"chrS":Schr
 		}
 	}
 	console.log(settings);
 	$.ajax(settings);
 	console.log('putAvatar ran');
+	window.location.replace('/profile');
 }
 
 function functionRunner(){

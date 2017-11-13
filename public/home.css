@@ -1,0 +1,118 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+
+}
+
+html{
+	background: url(../background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size: cover;
+}
+
+h1{
+	text-align:center;
+	vertical-align:middle;
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+	color:white;
+	margin-top:10px;
+	margin-bottom: 5px;	
+	text-shadow:2px 0px black;
+	font-family: 'Press Start 2P', cursive;
+}
+
+h2{
+	text-align:center;
+	vertical-align:middle;
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+	color:white;
+	margin-top:10px;
+	margin-bottom: 50px;
+	text-shadow:2px 0px black;	
+}
+
+nav{
+	text-align:center;
+	vertical-align:middle;
+	margin-left:auto;
+	margin-right:auto;
+	width:33%;
+	border:5px ridge rgb(213,213,213);
+	background-color:rgb(50,62,208);
+	background-image:linear-gradient(
+		to bottom, rgb(50,62,208),rgb(6,6,134)
+	);
+	color:white;
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+
+}
+
+div{
+	text-align:center;
+	vertical-align:middle;
+	margin-left:auto;
+	margin-right:auto;
+	width:33%;
+	border:5px ridge rgb(213,213,213);
+	background-color:rgb(50,62,208);
+	background-image:linear-gradient(
+		to bottom, rgb(50,62,208),rgb(6,6,134)
+	);
+	color:white;
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	padding-bottom:20px;
+	margin-top:100px;
+}
+
+div h1{
+	margin-bottom:20px;
+}
+
+li{
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+a{
+	font-size:17px;
+	text-decoration:none;
+	color:white;
+	text-shadow:2px 0px black;	
+}
+
+a:hover{
+	color:silver;
+}
+
+.googleButton{
+	margin-top:10px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	padding-top:10px;
+	padding-left:20px;
+	padding-right:20px;
+	background-color:rgb(213,213,213);
+	background-image:linear-gradient(
+		to bottom, rgb(213,213,213),rgb(100,100,100)
+	);
+	border:5px ridge rgb(213,213,213);
+	box-shadow: 0px 0px 4px 0px black;
+	color:rgb(26,37,165);
+	font-weight:bold;
+	text-shadow:0px 0px rgb(6,6,134);
+}
+
+.googleButton:hover{
+	opacity:0.8;
+}

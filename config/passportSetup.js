@@ -37,12 +37,20 @@ passport.use(
 					googleId: profile.id,
 					class:"Novice",
 					avatar:"../0.jpg",
+					level:1,
+					xp:0,
 					strPts:0,
+					strS:1,
 					agiPts:0,
+					agiS:1,
 					vitPts:0,
+					vitS:1,
 					intPts:0,
+					intS:1,
 					wsdPts:0,
-					chrPts:0
+					wsdS:1,
+					chrPts:0,
+					chrS:1
 				}).save().then((newUser)=>{
 					console.log('new user created' + newUser);
 					done(null,newUser);

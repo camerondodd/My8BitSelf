@@ -6,12 +6,20 @@ const userSchema = new Schema({
 	googleId:String,
 	class:String,
 	avatar:String,
+	level:Number,
+	xp:Number,
 	strPts:Number,
+	strS:Number,
 	agiPts:Number,
+	agiS:Number,
 	vitPts:Number,
+	vitS:Number,
 	intPts:Number,
+	intS:Number,
 	wsdPts:Number,
-	chrPts:Number
+	wsdS:Number,
+	chrPts:Number,
+	chrS:Number
 });
 
 const User = mongoose.model('user', userSchema);

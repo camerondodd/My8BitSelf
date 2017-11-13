@@ -2,46 +2,47 @@
 <html>
 <head>
 	<title>home</title>
-	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link rel="stylesheet" type="text/css" href="../account.css">
 	<script type="text/javascript"></script>
 	<script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../index.js"></script> 
+	<script type="text/javascript" src="../index.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
 </head>
 <body>
-	
 		<nav>
 			<ul>
 				<% if (user) { %>
+				<li><a href="/">Homepage</a></li>
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/auth/info">Info</a></li>
 				<li><a href="/auth/logout">LogOut</a></li> 
 				<% } else { %>
 				<li><a href="/auth/login">LogIn</a></li> 
-				<% } %>
-				<li><a href="/">Homepage</a></li>
 				<li><a href="/auth/info">Info</a></li>
-				<li><a href="/profile">Profile</a></li>
+				<% } %>	
 			</ul>
 	</nav>
 	<header role="banner">
-		<h1>Account: <%= user.username %></h1>
+		<h1>Account Info</h1>
 	</header>
 	<main>
-		<p> Account Info </p>
-		<img src="<%= user.avatar %>"/>
-		<form class="updateUsername">
-			<h2>Change User Name?</h2>
-			<input type="text" placeholder="username" class="usernameInput">
-			<button type="submit">Change</button>
-		</form>
-		<form class="updateClass">
-			<h2>Change Class?</h2>
-			<input type="text" placeholder="class" class="classInput">
-			<button type="submit">Change</button>
-		</form>
-		<div class="delAcc">
-			<button class="delAccButton">Delete Account</button>
+		<div class="accountInfo">
+			<form class="updateUsername">
+				<h2>Change User Name?</h2>
+				<input type="text" placeholder="Username" class="usernameInput">
+				<button type="submit">Change</button>
+			</form>
+			<form class="updateClass">
+				<h2>Change Occupation?</h2>
+				<input type="text" placeholder="Occupation" class="classInput">
+				<button type="submit">Change</button>
+			</form>
+			<div class="delAcc">
+				<button class="delAccButton">Delete Account</button>
+			</div>
 		</div>
 	</main>
 </body>

@@ -40,15 +40,12 @@ router.get('/avatar',(req,res)=>{
 
 router.delete('/stats/:id', (req,res)=>{
 	console.log('del request landed');
-	// User.delete(req.params.id);
 	User.remove({_id:req.params.id}).then(()=>{
-		// res.Status(204).end();
-		res.Status(204).then(()=>{
+		res.status(204).then(()=>{
 			res.redirect('/auth/login')
 		}).end();
 	});
 	console.log('user deleted');
-	// res.render('login');
 });
 
 router.put('/stats/:id',jsonParser,(req,res)=>{
@@ -58,12 +55,20 @@ router.put('/stats/:id',jsonParser,(req,res)=>{
 		"username":req.body.username,
 		"class":req.body.class,
 		"avatar":req.body.avatar,
+		"level":req.body.level,
+		"xp":req.body.xp,
 		"strPts":req.body.strPts,
+		"strS":req.body.strS,
 		"agiPts":req.body.agiPts,
+		"agiS":req.body.agiS,
 		"vitPts":req.body.vitPts,
+		"vitS":req.body.vitS,
 		"intPts":req.body.intPts,
+		"intS":req.body.intS,
 		"wsdPts":req.body.wsdPts,
-		"chrPts":req.body.chrPts
+		"wsdS":req.body.wsdS,
+		"chrPts":req.body.chrPts,
+		"chrS":req.body.chrS
 	})
 	.then(()=>{res.status(204).json();});	
 });
