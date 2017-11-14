@@ -2,7 +2,7 @@
 	margin:0;
 	padding:0;
 	box-sizing:border-box;
-
+	font-family: 'Roboto Mono', monospace;
 }
 
 body{
@@ -17,7 +17,7 @@ h1{
 	margin-right:auto;
 	width:66%;
 	color:white;	
-	text-shadow:2px 2px black;
+	text-shadow:4px 4px black;
 	font-family: 'Press Start 2P', cursive;
 }
 
@@ -114,6 +114,7 @@ nav{
 	box-shadow: 0px 0px 4px 0px black;
 	border-radius:8px;
 	background-clip:padding-box;
+	width:90%;
 }
 
 .statColumn{
@@ -124,23 +125,52 @@ nav{
 	padding:1%;
 }
 
+.xpHolder{
+	width:66%;
+	border:5px ridge rgb(213,213,213);
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	background-clip:padding-box;
+	background-color:rgb(213,213,213);
+	background-image:linear-gradient(
+		to bottom, rgb(213,213,213),rgb(100,100,100)
+	);
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	padding-bottom:2px;
+	padding-top:2px;
+	padding-left:5px;
+}
+
+.xpBar{
+	background-color:rgb(50,62,208);
+	background-image:linear-gradient(
+		to bottom, rgb(50,62,208),rgb(6,6,134)
+	);
+	color:white;
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	text-shadow:2px 2px black;
+}
+
 li{
 	vertical-align: center;
 	padding-top:5px;
 	padding-bottom:5px;
-	padding-left:5%;
-	padding-right:5%;
+	padding-left:3%;
+	padding-right:3%;
 }
 
 a{
 	font-size:17px;
 	text-decoration:none;
 	color:white;
-	text-shadow:2px 0px black;	
+	text-shadow:2px 2px black;	
 }
 
 a:hover{
-	color:silver;
+	color:gray;
 }
 
 ul{
@@ -168,7 +198,7 @@ li{
 	box-shadow: 0px 0px 4px 0px black;
 	color:rgb(26,37,165);
 	font-weight:bold;
-	text-shadow:0px 0px rgb(6,6,134);
+	text-shadow:1px 1px rgb(6,6,134);
 }
 
 .advButton:hover{

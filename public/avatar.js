@@ -138,6 +138,38 @@ function twelveButton(){
 	})
 }
 
+function thirteenButton(){
+	$('.box').on('click','.thirteenButton', function(){
+		console.log('thirteenButton clicked');
+		Cavatar="../13.jpg";
+		putAvatar();
+	})
+}
+
+function fourteenButton(){
+	$('.box').on('click','.fourteenButton', function(){
+		console.log('fourteenButton clicked');
+		Cavatar="../14.jpg";
+		putAvatar();
+	})
+}
+
+function fifteenButton(){
+	$('.box').on('click','.fifteenButton', function(){
+		console.log('fifteenButton clicked');
+		Cavatar="../15.jpg";
+		putAvatar();
+	})
+}
+
+function sixteenButton(){
+	$('.box').on('click','.sixteenButton', function(){
+		console.log('sixteenButton clicked');
+		Cavatar="../16.jpg";
+		putAvatar();
+	})
+}
+
 function putAvatar(){
 	settings={
 		method:'PUT',
@@ -183,6 +215,10 @@ function functionRunner(){
 	tenButton();
 	elevenButton();
 	twelveButton();
+	thirteenButton();
+	fourteenButton();
+	fifteenButton();
+	sixteenButton();
 }
 
 $(functionRunner);

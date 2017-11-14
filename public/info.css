@@ -2,6 +2,7 @@
 	margin:0;
 	padding:0;
 	box-sizing:border-box;
+	font-family: 'Roboto Mono', monospace;
 }
 
 html{
@@ -25,6 +26,7 @@ nav{
 	padding-top:10px;
 	padding-bottom:10px;
 	border-radius:8px;
+	margin-bottom:20px;
 }
 
 li{
@@ -45,7 +47,7 @@ a{
 }
 
 a:hover{
-	color:silver;
+	color:gray;
 }
 
 ul{
@@ -59,7 +61,7 @@ h1{
 	margin-right:auto;
 	width:66%;
 	color:white;	
-	text-shadow:2px 2px black;
+	text-shadow:4px 4px black;
 	margin-top:5px;
 	margin-bottom:20px;
 	font-family: 'Press Start 2P', cursive;
@@ -70,9 +72,14 @@ h2{
 	vertical-align:middle;
 	margin-left:auto;
 	margin-right:auto;
+	margin-bottom:5px;
 	width:66%;
 	color:white;	
 	text-shadow:2px 2px black;
+}
+
+h2:hover{
+	color:gray;
 }
 
 .questionContainer{

@@ -39,20 +39,24 @@ function displayStats(data){
 }
 
 function characterPage(){
+	Pxp=(Cxp/10)*100;
 	levelUp();
 	$('.statsContainer').html(`
 		<h2>${Cusername} the ${Cclass}</h2>
 		<h3>Level: ${Clevel}</h3>
 		<h3>Experience: ${Cxp}/10</h3>
+		<div class="xpHolder">
+    		<div class="xpBar" style="width:${Pxp}%">${Pxp}%</div>
+  		</div>
 		<div class="statColumn">
-			<h4>STR:${Sstr}</h4>
-			<h4>AGI:${Sagi}</h4>
-			<h4>VIT:${Svit}</h4>
+			<h4>STR: ${Sstr}</h4>
+			<h4>AGI: ${Sagi}</h4>
+			<h4>VIT: ${Svit}</h4>
 		</div>
 		<div class="statColumn">
-			<h4>INT:${Sint}</h4>
-			<h4>WSD:${Swsd}</h4>
-			<h4>CHR:${Schr}</h4>			
+			<h4>INT: ${Sint}</h4>
+			<h4>WSD: ${Swsd}</h4>
+			<h4>CHR: ${Schr}</h4>			
 		</div>
 `)}
 
