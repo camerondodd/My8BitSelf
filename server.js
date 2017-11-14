@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const {PORT, DATABASE_URL} = require('./config');
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 const passportSetup = require('./config/passportSetup');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
@@ -35,6 +36,9 @@ mongoose.connect(dbURI, ()=>{
 //set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+
+// So your base API route will be /api and all other CRUD routes will be based off this, eg /api/scores  /api/games and so on.
+app.use('/api', apiRoutes);
 
 // home route
 app.get('/',(req,res)=>{
