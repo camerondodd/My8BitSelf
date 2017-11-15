@@ -12,7 +12,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 <body>
-	<nav>
+	<div class="columnContainer">
+	<div class="rightColumn col">
+		<header role="banner">
+		<h1>My 8-Bit Self</h1>
+		</header>
+		<nav>
 			<ul>
 				<% if (user) { %>
 				<li><a href="/">Homepage</a></li>
@@ -25,19 +30,29 @@
 				<% } %>
 				
 			</ul>
-	</nav>
-	<header role="banner">
-		<h1>Log Your Adventures!</h1>
-	</header>
-	<div class="adventureButtons">
-		<h2>What did you do?</h2>
-		<button class="strButton">Today I performed a Strength workout!</button>
-		<button class="agiButton">Today I performed intense Cardio for half an hour!</button>
-		<button class="vitButton">Today I performed easy Cardio for an hour!</button>
-		<button class="intButton">Today I read for half an hour!</button>
-		<button class="wsdButton">Today I did something I have never done before!</button>
-		<button class="chrButton">Today I talked to someone new!</button>
+		</nav>
+		<div class="adventureButtons">
+			<h2>Log Your Adventures</h2>
+			<h3>What did you do?</h3>
+			<button class="strButton">Today I performed a Strength workout!</button>
+			<button class="agiButton">Today I performed intense Cardio for half an hour!</button>
+			<button class="vitButton">Today I performed easy Cardio for an hour!</button>
+			<button class="intButton">Today I read for half an hour!</button>
+			<button class="wsdButton">Today I did something I have never done before!</button>
+			<button class="chrButton">Today I talked to someone new!</button>
+		</div>
+		<div class="advResultsContainer" hidden>
+			<div class="advResults"></div>
+			<button class="anotherButton">Log Another Adventure</button>
+			<button class="doneButton">Done</button>
+		</div>
 	</div>
-
+	<div class="leftColumn col">
+			<div class="avatarContainer"></div>
+			<a href="/profile/avatar" class="changeAvatarButton">Change Avatar</a>
+			<br>
+			<a href="/profile/adv" class="advButton">Log Adventure!</a>
+	</div>
+	</div>
 </body>
 </html>

@@ -199,7 +199,10 @@ function putAvatar(){
 	console.log(settings);
 	$.ajax(settings);
 	console.log('putAvatar ran');
-	window.location.replace('/profile');
+	var time=10;
+	window.setTimeout(function(){
+		window.location.replace('/profile');
+	}, time);
 }
 
 function functionRunner(){

@@ -13,6 +13,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
 </head>
 <body>
+	<div class="columnContainer">
+	<div class="rightColumn col">
+		<header role="banner">
+			<h1>My 8-Bit Self</h1>
+		</header>
 		<nav>
 			<ul>
 				<% if (user) { %>
@@ -25,26 +30,35 @@
 				<li><a href="/auth/info">Info</a></li>
 				<% } %>	
 			</ul>
-	</nav>
-	<header role="banner">
-		<h1>Account Info</h1>
-	</header>
-	<main>
+		</nav>
 		<div class="accountInfo">
+			<h2>Account Info</h2>
 			<form class="updateUsername">
-				<h2>Change User Name?</h2>
+				<h3>Change User Name?</h3>
 				<input type="text" placeholder="Username" class="usernameInput">
 				<button type="submit">Change</button>
 			</form>
 			<form class="updateClass">
-				<h2>Change Occupation?</h2>
+				<h3>Change Occupation?</h3>
 				<input type="text" placeholder="Occupation" class="classInput">
 				<button type="submit">Change</button>
 			</form>
 			<div class="delAcc">
 				<button class="delAccButton">Delete Account</button>
 			</div>
-		</div>
-	</main>
+	</div>
+	</div>
+	<div class="leftColumn col">
+			<div class="avatarContainer"></div>
+			<a href="/profile/avatar" class="changeAvatarButton">Change Avatar</a>
+			<br>
+			<a href="/profile/adv" class="advButton">Log Adventure!</a>
+	</div>
+	</div>
+	<div class="areYouSure" hidden>
+		<h1>Are you sure you want to delete your account?</h1>
+		<button class="delYes">Yes</button>
+		<button class="delNo">No</button>
+	</div>
 </body>
 </html>

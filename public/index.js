@@ -46,7 +46,9 @@ function characterPage(){
 		<h3>Level: ${Clevel}</h3>
 		<h3>Experience: ${Cxp}/10</h3>
 		<div class="xpHolder">
-    		<div class="xpBar" style="width:${Pxp}%">${Pxp}%</div>
+    		<div class="xpBar" style="width:${Pxp}%">
+    			<p>${Pxp}%</p>
+    		</div>
   		</div>
 		<div class="statColumn">
 			<h4>STR: ${Sstr}</h4>
@@ -89,10 +91,26 @@ getStats(displayStats);
 
 function delAccButton(){
  	$('.delAcc').on('click','.delAccButton', function(){
- 	console.log('delAcc button pressed');
- 	window.location.replace('/auth/login');
- 	delAcc();
+ 		console.log('delAcc button pressed');
+ 		$('.columnContainer').toggle();
+		$('.areYouSure').prop('hidden',false);
  	})
+}
+
+function delNo(){
+	$('.areYouSure').on('click','.delNo',function(){
+		console.log('delAcc button pressed');
+ 		$('.columnContainer').toggle();
+		$('.areYouSure').prop('hidden',true);
+	})
+}
+
+function delYes(){
+	$('.areYouSure').on('click','.delYes',function(){
+		console.log('delYes button pressed');
+ 		window.location.replace('/auth/login');
+ 		delAcc();
+	})
 }
 
 function delAcc(){
@@ -113,8 +131,6 @@ function strButton(){
 		putStat();
 	})
 }
-
-
 
 function agiButton(){
 	$('.adventureButtons').on('click','.agiButton', function(){
@@ -209,12 +225,43 @@ function putStat(){
 	$.ajax(settings);
 	console.log('putStat ran');
 	getStats(displayStats);
-	location.reload(true);
-	window.location.replace('/profile');
+	advResults();
+}
+
+function advResults(){
+	if(Cxp>=10){
+		$('.advResults').html(`
+		<h1>Adventure Logged!</h1>
+		<h2>Leveled Up!</h2>
+		`);
+		$('.adventureButtons').toggle();
+		$('.advResultsContainer').prop('hidden',false);
+	}
+	else{
+		$('.advResults').html(`
+		<h1>Adventure Logged!</h1>
+		<h2>Experience +1</h2>
+		`);
+		$('.adventureButtons').toggle();
+		$('.advResultsContainer').prop('hidden',false);
+}}
+
+function anotherButton(){
+	$('.advResultsContainer').on('click','.anotherButton', function(){
+		window.location.reload();
+	})
+}
+
+function doneButton(){
+	$('.advResultsContainer').on('click','.doneButton',function(){
+		window.location.replace('/profile');	
+	})
 }
 
 function functionRunner(){
 	delAccButton();
+	delYes();
+	delNo();
 	strButton();
 	agiButton();
 	vitButton();
@@ -223,6 +270,8 @@ function functionRunner(){
 	chrButton();
 	usernameSubmit();
 	classSubmit();
+	anotherButton();
+	doneButton();
 }
 
 $(functionRunner);

@@ -6,17 +6,35 @@
 }
 
 html{
-	background: url(../background.jpg) no-repeat center center fixed;
+	background: black;
+}
+
+.columnContainer{
+	display:table;
+	width:100%;
+}
+
+.col{
+	display:table-cell;
+}
+
+header{
+	background: url(../background.jpg) no-repeat center right fixed;
     -webkit-background-size: cover;
     -moz-background-size:cover;
     -o-background-size:cover;
     background-size: cover;
+    width:100%;
+    margin:0;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 nav{
 	text-align:center;
 	vertical-align:middle;
-	border:5px ridge rgb(213,213,213);
+	border-top:5px ridge rgb(213,213,213);
+	border-bottom:5px ridge rgb(213,213,213);
 	background-color:rgb(50,62,208);
 	background-image:linear-gradient(
 		to bottom, rgb(50,62,208),rgb(6,6,134)
@@ -25,16 +43,14 @@ nav{
 	box-shadow: 0px 0px 4px 0px black;	
 	padding-top:10px;
 	padding-bottom:10px;
-	border-radius:8px;
-	margin-bottom: 10px;
 }
 
 li{
 	vertical-align: center;
 	padding-top:5px;
 	padding-bottom:5px;
-	padding-left:7%;
-	padding-right:7%;
+	padding-left:3%;
+	padding-right:3%;
 	display:inline-block;
 	width:fit-content;
 }
@@ -62,8 +78,6 @@ h1{
 	width:66%;
 	color:white;	
 	text-shadow:4px 4px black;
-	margin-top:5px;
-	margin-bottom:20px;
 	font-family: 'Press Start 2P', cursive;
 }
 
@@ -76,24 +90,18 @@ h2{
 	color:white;	
 	text-shadow:2px 2px black;
 	margin-bottom:10px;
+	margin-top:10px;
 }
 
-.accountInfo{
+h3{
 	text-align:center;
-	vertical-align:middle;
-	border:5px ridge rgb(213,213,213);
-	background-color:rgb(50,62,208);
-	background-image:linear-gradient(
-		to bottom, rgb(50,62,208),rgb(6,6,134)
-	);
-	color:white;
-	box-shadow: 0px 0px 4px 0px black;	
-	padding-top:10px;
-	padding-bottom:10px;
-	border-radius:8px;
-	width:66%;
 	margin-left:auto;
 	margin-right:auto;
+	width:66%;
+	color:white;	
+	text-shadow:2px 2px black;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 input{
@@ -121,7 +129,8 @@ button{
 	box-shadow: 0px 0px 4px 0px black;
 	color:rgb(26,37,165);
 	font-weight:bold;
-	text-shadow:1px 1px rgb(6,6,134);
+	font-size: 15px;
+	text-shadow:0px 0px rgb(6,6,134);
 	width:20%;
 	margin-right:auto;
 	margin-left:auto;
@@ -129,4 +138,112 @@ button{
 
 button:hover{
 	opacity:0.8;
+}
+
+.leftColumn{
+	text-align:center;
+/*	float:right;*/
+	width:33.33%;
+	padding:1%;
+	text-align:center;
+	vertical-align:top;
+	border:5px ridge rgb(213,213,213);
+	background-color:rgb(50,62,208);
+	background-image:linear-gradient(
+		to bottom, rgb(50,62,208),rgb(6,6,134)
+	);
+	color:white;
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	padding-bottom:30px;
+	padding-top:30px;
+}
+
+.rightColumn{
+	text-align:center;
+/*	float:right;*/
+	width:66.66%;
+	text-align:center;
+	vertical-align:top;
+	border:5px ridge rgb(213,213,213);
+	background-color:rgb(50,62,208);
+	background-image:linear-gradient(
+		to bottom, rgb(50,62,208),rgb(6,6,134)
+	);
+	color:white;
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	padding-bottom:20px;
+}
+
+.avatarContainer{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.avatarImg{
+	border:5px ridge rgb(213,213,213);
+	box-shadow: 0px 0px 4px 0px black;
+	border-radius:8px;
+	background-clip:padding-box;
+	width:66%;
+}
+
+.advButton{
+	display:block;
+	margin-top:80px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	padding-top:10px;
+	padding-left:20px;
+	padding-right:20px;
+	background-color:rgb(213,213,213);
+	background-image:linear-gradient(
+		to bottom, rgb(213,213,213),rgb(100,100,100)
+	);
+	border:5px ridge rgb(213,213,213);
+	box-shadow: 0px 0px 4px 0px black;
+	color:rgb(26,37,165);
+	font-weight:bold;
+	text-shadow:0px 0px rgb(6,6,134);
+}
+
+.advButton:hover{
+	opacity:0.8;
+}
+
+.areYouSure{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	margin-bottom:30px;
+}
+
+.delYes, .delNo{
+	margin-top:40px;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+@media only screen and (max-width:400px){
+	.rightColumn{
+		width:100%;
+		float:right;
+	}
+	.leftColumn{
+		width:100%;
+		float:right;
+	}
+	li{
+		padding-right:6%;
+		padding-left:6%;
+	}
+	input{
+		width:66%;
+	}
+	button{
+		width:33%;
+	}
+
 }
