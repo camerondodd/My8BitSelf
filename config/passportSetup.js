@@ -1,7 +1,8 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
-const keys = require('./keys');
+// const keys = require('./keys');
 const User = require('../models/userModel');
+const {clientID, clientSecret} = require('../config');
 
 passport.serializeUser((user, done)=>{
 	done(null, user.id);
@@ -13,15 +14,15 @@ passport.deserializeUser((id, done)=>{
 	});
 });
 
-const clientIDEnc = keys.google.clientID;
-const clientSecretEnc = keys.google.clientSecret;
+// const clientIDEnc = keys.google.clientID;
+// const clientSecretEnc = keys.google.clientSecret;
 
 passport.use(
 	new GoogleStrategy({
 		// options for the google strat
 		callbackURL:"/auth/google/redirect",
-		clientID:clientIDEnc,
-		clientSecret:clientSecretEnc
+		clientID:clientID,
+		clientSecret:clientSecret
 },(accessToken, refreshToken, profile, done)=>{
 		// check if user already exists
 		User.findOne({googleId:profile.id}).then( (currentUser) => {
