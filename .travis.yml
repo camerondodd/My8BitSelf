@@ -5,6 +5,3 @@ deploy:
   provider: heroku
   api_key: a5ee0e83-4f13-4c7d-9427-f29437519c89
   app: hidden-ridge-33061
-before_install:
-- openssl aes-256-cbc -K $encrypted_3ca670c71bf7_key -iv $encrypted_3ca670c71bf7_iv
-  -in keys.js.enc -out config/keys.js -d
