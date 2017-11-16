@@ -107,6 +107,7 @@ nav{
 }
 
 .statsContainer{
+	vertical-align:middle;
 	color:white;
 	text-shadow:2px 2px black;
 	padding-top: 30px;	

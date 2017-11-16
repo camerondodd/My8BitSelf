@@ -10,7 +10,7 @@ const passportSetup = require('./config/passportSetup');
 // const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const {cookieKey,dbURI} = require('./config');
+const {cookieKey,dbURI,dbURITest} = require('./config');
 
 
 
@@ -49,7 +49,39 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('public'));
 
+let server;
 
+function runServer(databaseUrl, port) {
+  return new Promise((resolve, reject) => {
+    mongoose.createConnection(databaseUrl, err => {
+      if (err) {
+        return reject(err);
+      }
+      server = app.listen(port, () => {
+        console.log(`Your app is listening on port ${port}`);
+        resolve();
+      })
+      .on('error', err => {
+        mongoose.disconnect();
+        reject(err);
+      });
+    });
+  });
+}
+
+function closeServer() {
+  return mongoose.disconnect().then(() => {
+     return new Promise((resolve, reject) => {
+       console.log('Closing server');
+       server.close(err => {
+           if (err) {
+               return reject(err);
+           }
+           resolve();
+       });
+     });
+  });
+}
 
 app.listen(process.env.PORT || 8080);
-exports.app=app;
+module.exports={app,runServer,closeServer};

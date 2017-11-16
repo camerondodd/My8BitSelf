@@ -81,7 +81,7 @@ function levelUp(){
 		putStat();
 	}
 	else{
-		console.log(`${Cxp}/10`)
+	  	console.log(`${Cxp}/10`)
 	}
 }
 
@@ -184,6 +184,10 @@ function usernameSubmit(){
     Cusername=queryTarget.val();
     queryTarget.val('');
     putStat();
+    var time=100;
+	window.setTimeout(function(){
+		window.location.replace('/profile');
+	}, time);
 })}
 
 function classSubmit(){
@@ -193,6 +197,10 @@ $('.updateClass').submit(event => {
     Cclass=queryTarget.val();
     queryTarget.val('');
     putStat();
+    var time=100;
+		window.setTimeout(function(){
+		window.location.replace('/profile');
+	}, time);
 })}
 
 function putStat(){
@@ -225,36 +233,59 @@ function putStat(){
 	$.ajax(settings);
 	console.log('putStat ran');
 	getStats(displayStats);
-	advResults();
+	var time=10;
+	window.setTimeout(advResults(), time);
 }
 
-function advResults(){
-	if(Cxp>=10){
-		$('.advResults').html(`
-		<h1>Adventure Logged!</h1>
-		<h2>Leveled Up!</h2>
-		`);
-		$('.adventureButtons').toggle();
-		$('.advResultsContainer').prop('hidden',false);
-	}
-	else{
-		$('.advResults').html(`
-		<h1>Adventure Logged!</h1>
-		<h2>Experience +1</h2>
-		`);
-		$('.adventureButtons').toggle();
-		$('.advResultsContainer').prop('hidden',false);
-}}
+ function advResults(){
+ 	if(Cxp>=10){
+ 		$('.advResults').html(`
+ 		<h1>Adventure Logged!</h1>
+ 		<h2>Leveled Up!</h2>
+ 		`);
+ 		// $('.adventureButtons').toggle();
+ 		$('.adventureButtons').prop('hidden',true);
+ 		$('.levelContainer').prop('hidden',false);
+
+ 	}
+ 	else{
+ 		$('.advResults').html(`
+ 		<h1>Adventure Logged!</h1>
+ 		<h2>Experience +1</h2>
+ 		`);
+ 		// $('.adventureButtons').toggle();
+ 		$('.adventureButtons').prop('hidden',true);
+ 		$('.advResultsContainer').prop('hidden',false);
+ }}
 
 function anotherButton(){
 	$('.advResultsContainer').on('click','.anotherButton', function(){
-		window.location.reload();
+		$('.advResultsContainer').prop('hidden',true);
+		
+	 	var time=100;
+	 	window.setTimeout(function(){
+	 	$('.advResultsContainer').prop('hidden',true);	 	
+	 	 window.location.reload(true);
+	  }, time);
 	})
 }
 
 function doneButton(){
 	$('.advResultsContainer').on('click','.doneButton',function(){
-		window.location.replace('/profile');	
+		var time=10;
+		window.setTimeout(function(){
+		window.location.replace('/profile');
+	}, time);	
+	})
+}
+
+function levelButton(){
+	$('.levelContainer').on('click','.levelButton',function(){
+		// levelUp();
+		var time=10;
+		window.setTimeout(function(){
+		window.location.replace('/profile');
+	}, time);	
 	})
 }
 
@@ -272,6 +303,7 @@ function functionRunner(){
 	classSubmit();
 	anotherButton();
 	doneButton();
+	levelButton();
 }
 
 $(functionRunner);

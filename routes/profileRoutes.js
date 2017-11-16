@@ -48,6 +48,30 @@ router.delete('/stats/:id', (req,res)=>{
 	console.log('user deleted');
 });
 
+router.post('/stats', (req,res)=>{
+	User.create({
+		username:req.body.username,
+		googleId:req.body.googleID,
+		class:req.body.class,
+		avatar:req.body.avatar,
+		level:req.body.level,
+		xp:req.body.xp,
+		strPts:req.body.strPts,
+		strS:req.body.strS,
+		agiPts:req.body.agiPts,
+		agiS:req.body.agiS,
+		vitPts:req.body.vitPts,
+		vitS:req.body.vitS,
+		intPts:req.body.intPts,
+		intS:req.body.intS,
+		wsdPts:req.body.wsdPts,
+		wsdS:req.body.wsdS,
+		chrPts:req.body.chrPts,
+		chrS:req.body.chrS
+	})
+	.then(user => res.status(201).json(User.apiRepr()));
+});
+
 router.put('/stats/:id',jsonParser,(req,res)=>{
 	console.log('stats updated');
 	console.log(req.body);
