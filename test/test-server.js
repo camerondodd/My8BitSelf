@@ -9,9 +9,15 @@ var should = chai.should();
 var {app,runServer,closeServer} = require('../server');
 // var storage = server.storage;
 
-var {dbURI, dbURITest ,PORT} = require('../config');
+var {dbURITest} = require('../config');
 var User = require('../models/userModel');
-var {router} = require('../routes/profileRoutes');
+var router = require('../routes/profileRoutes');
+
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 chai.use(chaiHttp);
 
@@ -75,8 +81,6 @@ describe('user API resource', function() {
   });
 
   afterEach(function() {
-    // tear down database so we ensure no state from this test
-    // effects any coming after.
     return tearDownDb();
   });
 
@@ -91,18 +95,15 @@ describe('user API resource', function() {
     it('should return all existing users', function() {
       let res;
       return chai.request(app)
-        .get('/stats')
+        .get('/profile/stats')
         .then(_res => {
           res = _res;
+          console.log(res.body);
           res.should.have.status(200);
-          // otherwise our db seeding didn't work
           res.body.should.have.length.of.at.least(1);
-
           return User.count();
         })
         .then(count => {
-          // the number of returned posts should be same
-          // as number of posts in DB
           res.body.should.have.length.of(count);
         });
     });
@@ -112,12 +113,11 @@ describe('user API resource', function() {
 
       let resUser;
       return chai.request(app)
-        .get('/stats')
+        .get('/profile/stats')
         .then(function(res) {
 
           res.should.have.status(200);
           res.should.be.json;
-          res.body.should.be.a('array');
           res.body.should.have.length.of.at.least(1);
 
           res.body.forEach(function(user) {
@@ -169,7 +169,7 @@ describe('user API resource', function() {
       };
 
       return chai.request(app)
-        .post('/stats')
+        .post('/profile/stats')
         .send(newUser)
         .then(function(res) {
           res.should.have.status(201);
@@ -228,7 +228,7 @@ describe('PUT endpoint', function() {
           updateData.id = user.id;
 
           return chai.request(app)
-            .put(`/stats/${user.id}`)
+            .put(`/profile/stats/${user.id}`)
             .send(updateData);
         })
         .then(res => {
@@ -254,7 +254,7 @@ describe('DELETE endpoint', function() {
         .findOne()
         .then(_user => {
           user = _user;
-          return chai.request(app).delete(`/stats/${user.id}`);
+          return chai.request(app).delete(`/profile/stats/${user.id}`);
         })
         .then(res => {
           res.should.have.status(204);

@@ -1,13 +1,20 @@
+const keys = require('./config/keys');
+
 exports.PORT = process.env.PORT || 8080;
 
 exports.clientID = process.env.clientID ||
-                       global.clientID;
+                       global.clientID||
+                       keys.google.clientID;
                        
 exports.clientSecret = process.env.clientSecret ||
-                       global.clientSecret;
+                       global.clientSecret||
+                       keys.google.clientSecret;
 exports.dbURI = process.env.dbURI ||
-                       global.dbURI;
+                       global.dbURI ||
+                       keys.mongodb.dbURI;
 exports.dbURITest = process.env.dbURITest ||
-                       global.dbURITest;
+                       global.dbURITest||
+                       keys.mongodb.dbURITest;
 exports.cookieKey = process.env.cookieKey ||
-                       global.cookieKey;
+                       global.cookieKey||
+                       keys.session.cookieKey;
