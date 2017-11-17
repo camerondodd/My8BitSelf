@@ -243,7 +243,6 @@ function putStat(){
  		<h1>Adventure Logged!</h1>
  		<h2>Leveled Up!</h2>
  		`);
- 		// $('.adventureButtons').toggle();
  		$('.adventureButtons').prop('hidden',true);
  		$('.levelContainer').prop('hidden',false);
 
@@ -253,7 +252,6 @@ function putStat(){
  		<h1>Adventure Logged!</h1>
  		<h2>Experience +1</h2>
  		`);
- 		// $('.adventureButtons').toggle();
  		$('.adventureButtons').prop('hidden',true);
  		$('.advResultsContainer').prop('hidden',false);
  }}
