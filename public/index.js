@@ -233,12 +233,12 @@ function putStat(){
 	$.ajax(settings);
 	console.log('putStat ran');
 	getStats(displayStats);
-	var time=100;
+	var time=10;
 	window.setTimeout(advResults(), time);
 }
 
  function advResults(){
- 	if(Cxp>=100){
+ 	if(Cxp>=10){
  		$('.advResults').html(`
  		<h1>Adventure Logged!</h1>
  		<h2>Leveled Up!</h2>
@@ -262,7 +262,7 @@ function anotherButton(){
 	$('.advResultsContainer').on('click','.anotherButton', function(){
 		$('.advResultsContainer').prop('hidden',true);
 		
-	 	var time=100;
+	 	var time=200;
 	 	window.setTimeout(function(){
 	 	$('.advResultsContainer').prop('hidden',true);	 	
 	 	 window.location.reload(true);
@@ -272,7 +272,7 @@ function anotherButton(){
 
 function doneButton(){
 	$('.advResultsContainer').on('click','.doneButton',function(){
-		var time=100;
+		var time=200;
 		window.setTimeout(function(){
 		window.location.replace('/profile');
 	}, time);	
@@ -282,7 +282,7 @@ function doneButton(){
 function levelButton(){
 	$('.levelContainer').on('click','.levelButton',function(){
 		// levelUp();
-		var time=100;
+		var time=200;
 		window.setTimeout(function(){
 		window.location.replace('/profile');
 	}, time);	
