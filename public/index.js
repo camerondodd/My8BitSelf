@@ -233,12 +233,12 @@ function putStat(){
 	$.ajax(settings);
 	console.log('putStat ran');
 	getStats(displayStats);
-	var time=10;
+	var time=200;
 	window.setTimeout(advResults(), time);
 }
 
  function advResults(){
- 	if(Cxp>=10){
+ 	if(Cxp>=100){
  		$('.advResults').html(`
  		<h1>Adventure Logged!</h1>
  		<h2>Leveled Up!</h2>
