@@ -66,18 +66,18 @@ function levelUp(){
 	if(Cxp>=10){
 		Clevel++;
 		Cxp=0;
-		if(Cstr%5===0)
-			Sstr = 1 + (Cstr/5);
-		if(Cagi%5===0)
-			Sagi = 1 + (Cagi/5);
-		if(Cvit%5===0)
-			Svit = 1 + (Cvit/5);
-		if(Cint%5===0)
-			Sint = 1 + (Cint/5);
-		if(Cwsd%5===0)
-			Swsd = 1 + (Cwsd/5);
-		if(Cchr%5===0)
-			Schr = 1 + (Cchr/5);
+		Rstr=Math.round(Cstr/5);
+			Sstr = 1 + Rstr;
+		Ragi=Math.round(Cagi/5);
+			Sagi = 1 + Ragi;
+		Rvit=Math.round(Cvit/5);
+			Svit = 1 + Rvit;
+		Rint=Math.round(Cint/5);
+			Sint = 1 + Rint;
+		Rwsd=Math.round(Cwsd/5);
+			Swsd = 1 + Rwsd;
+		Rchr=Math.round(Cchr/5);
+			Schr = 1 + Rchr;
 		putStat();
 	}
 	else{
