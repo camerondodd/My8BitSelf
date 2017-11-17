@@ -10,7 +10,7 @@ const passportSetup = require('./config/passportSetup');
 // const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const {cookieKey,dbURI,dbURITest} = require('./config');
+const {cookieKey,dbURI} = require('./config');
 
 
 
