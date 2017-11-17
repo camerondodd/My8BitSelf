@@ -233,7 +233,7 @@ function putStat(){
 	$.ajax(settings);
 	console.log('putStat ran');
 	getStats(displayStats);
-	var time=10;
+	var time=100;
 	window.setTimeout(advResults(), time);
 }
 
@@ -262,7 +262,7 @@ function anotherButton(){
 	$('.advResultsContainer').on('click','.anotherButton', function(){
 		$('.advResultsContainer').prop('hidden',true);
 		
-	 	var time=50;
+	 	var time=100;
 	 	window.setTimeout(function(){
 	 	$('.advResultsContainer').prop('hidden',true);	 	
 	 	 window.location.reload(true);
@@ -272,7 +272,7 @@ function anotherButton(){
 
 function doneButton(){
 	$('.advResultsContainer').on('click','.doneButton',function(){
-		var time=50;
+		var time=100;
 		window.setTimeout(function(){
 		window.location.replace('/profile');
 	}, time);	
