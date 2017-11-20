@@ -15,6 +15,7 @@
 .box img:hover {
 	opacity:0.5;
 	filter: alpha(opacity=50);
+	cursor:pointer;
 }
 
 html{
@@ -59,6 +60,7 @@ a{
 
 a:hover{
 	color:gray;
+	cursor:pointer;
 }
 
 ul{

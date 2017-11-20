@@ -110,35 +110,6 @@ describe('user API resource', function() {
     });
 });
 
-  //   it('should return users with right fields', function(done) {
-  //     // Strategy: Get back all posts, and ensure they have expected keys
-
-  //     let resUser;
-  //     return chai.request(app)
-  //       .get('/api/scores/:id')
-  //       .then(function(res) {
-
-  //         res.should.have.status(200);
-  //         res.should.be.json;
-  //         res.body.should.have.length.of.at.least(1);
-
-  //         res.body.forEach(function(user) {
-  //           post.should.be.a('object');
-  //           post.should.include.keys('username', 'level', 'class');
-  //         });
-  //         // just check one of the posts that its values match with those in db
-  //         // and we'll assume it's true for rest
-  //         resUser = res.body[0];
-  //         return User.findById(resUser.id);
-  //       })
-  //       .then(user => {
-  //         resUser.username.should.equal(user.username);
-  //         resUser.level.should.equal(user.level);
-  //         resUser.class.should.equal(user.class);
-  //       }).then(done,done);
-  //   });
-  // });
-
 // //////////POST TEST///////////////
 
 

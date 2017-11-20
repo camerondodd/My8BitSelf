@@ -67,6 +67,7 @@ a{
 
 a:hover{
 	color:gray;
+	cursor:pointer;
 }
 
 ul{
@@ -135,6 +136,7 @@ button{
 
 button:hover{
 	opacity:0.8;
+	cursor:pointer;
 }
 
 .leftColumn{
@@ -209,6 +211,7 @@ button:hover{
 
 .advButton:hover{
 	opacity:0.8;
+	cursor:pointer;
 }
 
 @media only screen and (max-width:400px){
