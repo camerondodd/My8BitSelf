@@ -1,6 +1,5 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
-// const keys = require('./keys');
 const User = require('../models/userModel');
 const {clientID, clientSecret} = require('../config');
 
@@ -13,9 +12,6 @@ passport.deserializeUser((id, done)=>{
 		done(null, user);
 	});
 });
-
-// const clientIDEnc = keys.google.clientID;
-// const clientSecretEnc = keys.google.clientSecret;
 
 passport.use(
 	new GoogleStrategy({
@@ -57,8 +53,6 @@ passport.use(
 					done(null,newUser);
 				});
 			}
-		});
-
-		
+		});	
 	})
 );

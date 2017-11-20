@@ -1,3 +1,4 @@
+// Routes for client
 const express = require('express');
 const router = require('express').Router();
 const User = require('../models/userModel');
@@ -7,6 +8,7 @@ const jsonParser = bodyParser.json();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended:true}));
 
+// Check to see if logged in
 const authCheck = (req, res, next) => {
 	if(!req.user){
 		// if user is not logged in
@@ -18,6 +20,7 @@ const authCheck = (req, res, next) => {
 	}
 };
 
+// Loads authorized pagess
 router.get('/', authCheck, (req, res)=>{
 	res.render('profile', {user:req.user});
 });
@@ -38,6 +41,7 @@ router.get('/avatar',(req,res)=>{
 	res.render('avatar', {user:req.user});
 });
 
+// DELETES user
 router.delete('/stats/:id', (req,res)=>{
 	console.log('del request landed');
 	User.remove({_id:req.params.id}).then(()=>{
@@ -48,7 +52,8 @@ router.delete('/stats/:id', (req,res)=>{
 	console.log('user deleted');
 });
 
-router.post('/stats', (req,res)=>{
+// POST user
+router.post('/stats',(req, res)=>{	
 	User.create({
 		username:req.body.username,
 		googleId:req.body.googleID,
@@ -68,10 +73,12 @@ router.post('/stats', (req,res)=>{
 		wsdS:req.body.wsdS,
 		chrPts:req.body.chrPts,
 		chrS:req.body.chrS
-	})
-	.then(user => res.status(201).json(User.apiRepr()));
+	},function(err,user){
+		console.log(user);
+		res.json(user);})
 });
 
+// PUT user
 router.put('/stats/:id',jsonParser,(req,res)=>{
 	console.log('stats updated');
 	console.log(req.body);

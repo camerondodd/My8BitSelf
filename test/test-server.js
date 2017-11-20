@@ -1,18 +1,12 @@
-// var express = require('express');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-// var server = require('../server');
 var mongoose = require('mongoose');
 var faker = require('faker');
-
 var should = chai.should();
 var {app,runServer,closeServer} = require('../server');
-// var storage = server.storage;
-
 var {dbURI} = require('../config');
 var User = require('../models/userModel');
 var router = require('../routes/profileRoutes');
-
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
@@ -21,8 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 chai.use(chaiHttp);
 
-console.log(process.env.NODE_ENV);
-
+// Test for existance
 describe('index page', function() {
   it('exists', function(done) {
     chai.request(app)
@@ -35,13 +28,13 @@ describe('index page', function() {
   });
 });
 
-
-
+// Deletes db
 function tearDownDb() {
 	console.warn('Deleting database');
     return mongoose.connection.dropDatabase();
 }
 
+// Seeds db for tests
 function seedUserData() {
   console.info('seeding user data');
   const seedData = [];
@@ -71,6 +64,7 @@ function seedUserData() {
   return User.insertMany(seedData);
 }
 
+// Sets up testing procedure: run server, seed db, delete db, close server
 describe('user API resource', function() {
 
   before(function() {
@@ -92,7 +86,6 @@ describe('user API resource', function() {
 //////////GET TEST////////////////
 
   describe('GET endpoint', function() {
-
     it('should return all existing users', function(done) {
       let res;
       return chai.request(app)
@@ -110,12 +103,10 @@ describe('user API resource', function() {
     });
 });
 
-// //////////POST TEST///////////////
-
+////////////POST TEST///////////////
 
   describe('POST endpoint', function() {
     it('should add a new user', function(done) {
-
       const newUser = {
         username:faker.name.findName(),
 		googleId: faker.random.number(),
@@ -136,7 +127,6 @@ describe('user API resource', function() {
 		chrPts:faker.random.number(),
 		chrS:faker.random.number()
       };
-
       return chai.request(app)
         .post('/api/scores')
         .send(newUser)
@@ -158,11 +148,9 @@ describe('user API resource', function() {
     });
   });
 
-//   //////////////////PUT TEST/////////////////
+////////////////////PUT TEST/////////////////
 
 describe('PUT endpoint', function() {
-
-
     it('should update', function() {
       const updateData = {
         username: "Dorito",
@@ -184,24 +172,17 @@ describe('PUT endpoint', function() {
 		chrPts:496,
 		chrS:99
         };
-
       return User
         .findOne()
         .then(user => {
-        	console.log('**************');
-        	console.log(user);
-        	// user.class="WEB DEVELOPER";
            updateData.id = user.id;
-
           return chai.request(app)
             .put(`/api/scores/${user._id}`)
             .send(updateData)
-            // .then(function(res){console.log(res)})
         })
         .then(res => {
         	console.log(res);
           res.should.have.status(200);
-          // 
           User.findOne({_id: res.body._id},
 		(err, user) => {  
     		if (err) {
@@ -221,9 +202,7 @@ describe('PUT endpoint', function() {
 
 describe('DELETE endpoint', function() {
      it('should delete a user by id', function() {
-
       let user;
-
       return User
         .findOne()
         .then(_user => {

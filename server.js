@@ -7,7 +7,6 @@ const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const apiRoutes = require('./routes/apiRoutes');
 const passportSetup = require('./config/passportSetup');
-// const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const {cookieKey,dbURI} = require('./config');
@@ -20,7 +19,7 @@ mongoose.Promise = global.Promise;
 // set up view engine
 app.set("view engine",'ejs');
 
-// var cookieKey = keys.session.cookieKey;
+// handles cookies
 app.use(cookieSession({
 	maxAge: 24*60*60*1000,
 	keys: [cookieKey]
@@ -31,7 +30,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // connect to mongodb
-// var dbURI = keys.mongodb.dbURI;
 mongoose.connect(dbURI, ()=>{
 	console.log('connected to mongodb');
 });
@@ -39,8 +37,6 @@ mongoose.connect(dbURI, ()=>{
 //set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-
-// So your base API route will be /api and all other CRUD routes will be based off this, eg /api/scores  /api/games and so on.
 app.use('/api', apiRoutes);
 
 // home route
@@ -49,6 +45,8 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('public'));
 
+
+// Runs and closes server, used for testing
 let server;
 
 function runServer(databaseUrl, port) {

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>home</title>
+	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../home.css">
 	<script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="../index.js"></script>  -->
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
@@ -16,19 +15,19 @@
 		<h1>My 8-Bit Self</h1>
 		<h2>Your Life as an 8-bit Character</h2>
 	</header>
-	<nav>
-			<ul style="list-style:none;">
-				<% if (user) { %> 
-				<li><a href="/profile">Profile</a></li>
-				<li><a href="/auth/info">Info</a></li>
-				<li><a href="/auth/logout">LogOut</a></li>
-				<% } else { %>
-				<li><a href="/auth/login">LogIn</a></li> 
-				<li><a href="/auth/info">Info</a></li>
-				<% } %>
-				
-			</ul>
-	</nav>
-
+	<main role="main">
+		<nav role="navigation">
+				<ul style="list-style:none;">
+					<% if (user) { %> 
+					<li><a href="/profile">Profile</a></li>
+					<li><a href="/auth/info">Info</a></li>
+					<li><a href="/auth/logout">LogOut</a></li>
+					<% } else { %>
+					<li><a href="/auth/login">LogIn</a></li> 
+					<li><a href="/auth/info">Info</a></li>
+					<% } %>	
+				</ul>
+		</nav>
+	</main>
 </body>
 </html>

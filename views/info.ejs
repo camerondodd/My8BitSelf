@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>home</title>
+	<title>Info</title>
 	<link rel="stylesheet" type="text/css" href="../info.css">
 	<script type="text/javascript"></script>
 	<script
@@ -13,14 +13,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
 </head>
 <body>
-
-	<nav>
-			<ul>
-				<li><a href="/">Homepage</a></li>
-				<li><a href="/profile">Profile</a></li>
-			</ul>
+	<nav role="navigation">
+		<ul>
+			<li><a href="/">Homepage</a></li>
+			<li><a href="/profile">Profile</a></li>
+		</ul>
 	</nav>
-	<main>
+	<main role="main">
 		<header role="banner">
 			<h1>FAQ</h1>
 		</header>
@@ -28,28 +27,27 @@
 			<div class="oneQ">
 				<h2>What is My 8-Bit Self?</h2>
 			</div>
-			<div class="oneA" hidden>
+			<div class="oneA" aria-live="assertive" hidden>
 				<p>If you have ever wondered how your every day life would translate into an old 8-bit RPG character, My 8-Bit Self is for you.  This application allows you to track your everyday habits in such a way that gives you experience.  As you level, your stats will reflect the actions you took to gain experience.  Pick your Avatar, change your Username and occupation under MyAccount, and don't forget to have fun!</p>
 			</div>
 			<div class="twoQ">
 				<h2>Leveling</h2>
 			</div>
-			<div class="twoA" hidden>
+			<div class="twoA" aria-live="assertive" hidden>
 				<p>Log Adventures to record your daily actions.  Each Adventure will earn you one experience point.  Every time you get ten experience points you gain a level.  You need to perform an activity a certain number of times to increase that stat the next time you level.  You may not increase any stats when you level if your Adventures are divided evenly, but it means you will increase several stats at a later level. </p>
 			</div>
 			<div class=threeQ>
 				<h2>Logging In</h2>
 			</div>
-			<div class="threeA" hidden>
+			<div class="threeA" aria-live="assertive" hidden>
 				<p>All authentication is run through Google+.  You will need a Google Account to login. If you haven't played before, logging in with Google+ will create an account for you!</p>
 			</div>
 			<div class="contactQ">
 				<h2>Contact</h2>
 			</div>
-			<div class="contactA" hidden>
+			<div class="contactA" aria-live="assertive" hidden>
 				<a href="mailto:idlepython@gmail.com">idlepython@gmail.com</a>
 			</div>
-
 		</div>
 	</main>
 </body>

@@ -79,6 +79,7 @@ h1{
 	text-shadow:4px 4px black;
 	font-family: 'Press Start 2P', cursive;
 }
+
 @media only screen and (max-width:400px){
 	li{
 		padding-right:7%;

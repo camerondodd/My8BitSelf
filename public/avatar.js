@@ -1,5 +1,4 @@
-// const aURL='/profile/stats';
-
+// Gets user info
 function getStats(callback){
 	settings={
 		method:'GET',
@@ -11,6 +10,7 @@ function getStats(callback){
 	console.log('getStats ran');
 }
 
+// Displays user info
 function displayStats(data){
 	console.log(data);
 	id = `${data.user._id}`;
@@ -42,6 +42,7 @@ function displayStats(data){
 
 getStats(displayStats);
 
+// Button commands for changing avatars
 function oneButton(){
 	$('.box').on('click','.oneButton', function(){
 		console.log('oneButton clicked');
@@ -170,6 +171,7 @@ function sixteenButton(){
 	})
 }
 
+// Takes info from buttons and updates avatar
 function putAvatar(){
 	settings={
 		method:'PUT',
@@ -205,6 +207,7 @@ function putAvatar(){
 	}, time);
 }
 
+// Function runner
 function functionRunner(){
 	oneButton();
 	twoButton();

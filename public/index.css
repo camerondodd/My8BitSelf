@@ -72,7 +72,6 @@ nav{
 
 .leftColumn{
 	text-align:center;
-	/*float:right;*/
 	width:33.33%;
 	padding:1%;
 	text-align:center;
@@ -91,7 +90,6 @@ nav{
 
 .rightColumn{
 	text-align:center;
-	/*float:right;*/
 	width:66.66%;
 	text-align:center;
 	vertical-align:top;

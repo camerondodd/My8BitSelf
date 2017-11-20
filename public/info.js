@@ -1,3 +1,4 @@
+// Buttons for displaying the answer for only one question at a time.
 function oneQ(){
 	$('.questionContainer').on('click','.oneQ',function(){
 		$('.twoA').prop('hidden',true);
@@ -34,6 +35,7 @@ function contact(){
 	});
 }
 
+// Function runner
 function functionRunner(){
 	oneQ();
 	twoQ();

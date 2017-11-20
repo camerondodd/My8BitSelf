@@ -1,5 +1,6 @@
 const statsURL='/profile/stats';
 
+// Gets user info
 function getStats(callback){
 	settings={
 		method:'GET',
@@ -11,11 +12,12 @@ function getStats(callback){
 	console.log('getStats ran');
 }
 
+//Makes info useable for rest of file
 function displayStats(data){
 	console.log(data);
 	id = `${data.user._id}`;
 	$('.avatarContainer').html(`
-		<img class="avatarImg" src="${data.user.avatar}"/>
+		<img class="avatarImg" src="${data.user.avatar}" alt="avatar"/>
 	`);
 	statsURLDel = `/profile/stats/${id}`;
 	Cusername = data.user.username;
@@ -38,6 +40,7 @@ function displayStats(data){
 	characterPage();	
 }
 
+// Renders stats on profile
 function characterPage(){
 	Pxp=(Cxp/10)*100;
 	levelUp();
@@ -62,6 +65,7 @@ function characterPage(){
 		</div>
 `)}
 
+// Levels character when xp hits certain point
 function levelUp(){
 	if(Cxp>=10){
 		Clevel++;
@@ -88,7 +92,7 @@ function levelUp(){
 getStats(displayStats);
 
  
-
+// Brings up del page
 function delAccButton(){
  	$('.delAcc').on('click','.delAccButton', function(){
  		console.log('delAcc button pressed');
@@ -97,6 +101,7 @@ function delAccButton(){
  	})
 }
 
+// Doesn't delete account
 function delNo(){
 	$('.areYouSure').on('click','.delNo',function(){
 		console.log('delAcc button pressed');
@@ -105,6 +110,7 @@ function delNo(){
 	})
 }
 
+// Redirects to login and runs delAcc
 function delYes(){
 	$('.areYouSure').on('click','.delYes',function(){
 		console.log('delYes button pressed');
@@ -113,6 +119,7 @@ function delYes(){
 	})
 }
 
+// Deletes account
 function delAcc(){
 	settings={
 		method:'DELETE',
@@ -123,6 +130,7 @@ function delAcc(){
 	console.log('delAcc ran');
 }
 
+// Buttons to record particular stats and grant xp
 function strButton(){
 	$('.adventureButtons').on('click','.strButton', function(){
 		console.log('Strength Adventure!');
@@ -177,6 +185,7 @@ function chrButton(){
 	})
 }
 
+// Change username
 function usernameSubmit(){
 	$('.updateUsername').submit(event => {
     event.preventDefault();
@@ -190,6 +199,7 @@ function usernameSubmit(){
 	}, time);
 })}
 
+// Change class
 function classSubmit(){
 $('.updateClass').submit(event => {
     event.preventDefault();
@@ -203,6 +213,7 @@ $('.updateClass').submit(event => {
 	}, time);
 })}
 
+// Updates account with info from buttons
 function putStat(){
 	settings={
 		method:'PUT',
@@ -237,6 +248,7 @@ function putStat(){
 	window.setTimeout(advResults(), time);
 }
 
+// Reports results of adventure
  function advResults(){
  	if(Cxp>=100){
  		$('.advResults').html(`
@@ -256,6 +268,7 @@ function putStat(){
  		$('.advResultsContainer').prop('hidden',false);
  }}
 
+// Allows multiple adventures to be logged
 function anotherButton(){
 	$('.advResultsContainer').on('click','.anotherButton', function(){
 		$('.advResultsContainer').prop('hidden',true);
@@ -268,6 +281,7 @@ function anotherButton(){
 	})
 }
 
+// Returns to profile
 function doneButton(){
 	$('.advResultsContainer').on('click','.doneButton',function(){
 		var time=200;
@@ -277,9 +291,9 @@ function doneButton(){
 	})
 }
 
+//Returns to profile
 function levelButton(){
 	$('.levelContainer').on('click','.levelButton',function(){
-		// levelUp();
 		var time=200;
 		window.setTimeout(function(){
 		window.location.replace('/profile');
@@ -287,6 +301,7 @@ function levelButton(){
 	})
 }
 
+// Function runner
 function functionRunner(){
 	delAccButton();
 	delYes();
