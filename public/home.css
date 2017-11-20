@@ -26,6 +26,12 @@ h1{
 	font-family: 'Press Start 2P', cursive;
 }
 
+div h1{
+	margin-top:0px;
+	margin-bottom:50px;
+}
+
+
 h2{
 	text-align:center;
 	vertical-align:middle;

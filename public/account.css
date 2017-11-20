@@ -18,6 +18,11 @@ html{
 	display:table-cell;
 }
 
+.accountInfo{
+	padding-top:15%;
+	padding-bottom:15%;
+}
+
 header{
 	background: url(../background.jpg) no-repeat center right fixed;
     -webkit-background-size: cover;

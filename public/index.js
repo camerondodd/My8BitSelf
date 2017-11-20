@@ -250,14 +250,13 @@ function putStat(){
 
 // Reports results of adventure
  function advResults(){
- 	if(Cxp>=100){
+ 	if(Cxp>=10){
  		$('.advResults').html(`
  		<h1>Adventure Logged!</h1>
  		<h2>Leveled Up!</h2>
  		`);
  		$('.adventureButtons').prop('hidden',true);
- 		$('.levelContainer').prop('hidden',false);
-
+ 		$('.advResultsContainer').prop('hidden',false);
  	}
  	else{
  		$('.advResults').html(`
@@ -271,8 +270,6 @@ function putStat(){
 // Allows multiple adventures to be logged
 function anotherButton(){
 	$('.advResultsContainer').on('click','.anotherButton', function(){
-		$('.advResultsContainer').prop('hidden',true);
-		
 	 	var time=200;
 	 	window.setTimeout(function(){
 	 	$('.advResultsContainer').prop('hidden',true);	 	
@@ -284,16 +281,6 @@ function anotherButton(){
 // Returns to profile
 function doneButton(){
 	$('.advResultsContainer').on('click','.doneButton',function(){
-		var time=200;
-		window.setTimeout(function(){
-		window.location.replace('/profile');
-	}, time);	
-	})
-}
-
-//Returns to profile
-function levelButton(){
-	$('.levelContainer').on('click','.levelButton',function(){
 		var time=200;
 		window.setTimeout(function(){
 		window.location.replace('/profile');
@@ -316,7 +303,6 @@ function functionRunner(){
 	classSubmit();
 	anotherButton();
 	doneButton();
-	levelButton();
 }
 
 $(functionRunner);
