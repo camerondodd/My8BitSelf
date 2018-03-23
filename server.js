@@ -10,6 +10,7 @@ const passportSetup = require('./config/passportSetup');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const {cookieKey,dbURI} = require('./config');
+const favicon = require('serve-favicon');
 
 
 
@@ -45,6 +46,8 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('public'));
 
+//sets up favicon
+app.use(favicon(path.join(__dirname,'public','favicon.ico')));
 
 // Runs and closes server, used for testing
 let server;
